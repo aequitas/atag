@@ -1,0 +1,8 @@
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/ds18b20-prometheus-exporter -port 1400
+
+[Install]
+WantedBy=multi-user.target

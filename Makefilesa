@@ -1,0 +1,11 @@
+build:
+	GOOS=linux GOARCH=arm GOARM=6 go build .
+
+deploy_proxy:
+	
+
+deploy:
+	ssh root@10.0.0.4 systemctl stop onewire_exporter.service
+	scp ds18b20-prometheus-exporter root@10.0.0.4:
+	ssh root@10.0.0.4 systemctl start onewire_exporter.service
+
